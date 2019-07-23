@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常见数据结构</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+    </style>
+</head>
+<body>
+    <h2>常见数据结构：</h2>
+    <ol style="list-style:none;">
+        <li><b>哈希表 Hash Table</b></li>：所有只要满足键值对应的关系的数据；  <br><br>
+        哈希 &amp; 计数排序完整代码：
+        <div class="clearfix" style="border: 1px solid red;padding: 0px;" >
+            <div style="display: inline-block;border: 1px solid red;width: 35%;margin: 0px;">以上为遍历hash代码：<img src="./遍历hash.png" alt="遍历hash"></div>
+            <div style="display: inline-block;border: 1px solid red;width: 62%;">计数排序完整伪代码：<img src="./计数排序完整伪代码.png" alt=""></div>
+        </div>  
+        <li>
+            <ul>
+                <li> 计数排序中的桶（复杂度 O(n+max)，比快排还快,计数排序就是把每个值的个数统计起并放入桶中,这时已经排好序了，在出桶打印出来；在数组中，a['length']表示长度，在大都数语言里数组的长度等于最大值对应的键的下标+1，因为下标从零开始；</li>
+                <li> 桶排序：将数组分到有限数量的桶子里，然后对每个桶子再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序），最后将各个桶中的数据有序的合并起来。
+                </li>
+                <li>
+                    基数排序：一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。
+                </li>
+                <li>js里面用对象表示</li>
+            </ul>
+        </li>
+        <li><b>队列 Queue</b></li>
+        <li>
+            <ul>
+                <li>先进先出</li>
+                <li>可以用数组实现</li>
+                <li>举例：排队</li>
+            </ul>
+        </li>
+        <li><b>Stack 栈</b></li>
+        <li>
+            <ul>
+                <li>先进后出</li>
+                <li>可以用数组实现</li>
+                <li>举例：盗梦空间</li>
+            </ul>
+        </li>
+        <li><b>链表Linked List</b></li>
+        <li>
+            <ul>
+                <li>数组无法直接删除其中的一项，链表可以</li>
+                <li>用哈希表示链表</li>
+                <li>Head   Node概念</li>
+            </ul>
+        </li>
+        <li><b>树 Tree</b></li>
+        <li>
+            <ul>
+                <li>举例：层级结构、DOM</li>
+                <li>概念：层数、节点个数、深度</li>
+                <li>二叉树：</li>
+                <li>满二叉树</li>
+                <li>完全二叉树</li>
+                <li>完全二叉树和满二叉树可以用数组实现</li>
+                <li>其他树可以用哈希（对象）实现</li>
+                <li>操作：增删改查</li>
+                <li>堆排序用到了 tree</li>
+                <li>堆排序用到了 tree</li>
+            </ul>
+        </li>
+    </ol>
+</body>
+</html>

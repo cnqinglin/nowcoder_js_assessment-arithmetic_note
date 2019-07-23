@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常见排序算法题</title>
+</head>
+<body>
+    <h2 style="color: red;">
+        面试时：能把快排和随机快排的思路及编程写出来；
+      </h2> 
+      <hr>  
+    <h4>排序算法：能将一串数据按照特定排序方式排列的一种算法；</h4>
+    <p>
+        排序算法输出两个原则：
+        <ol>
+            <li>
+                输出结果为递增序列；
+            </li>
+            <li>
+                输出结果为原输入的一种排列或重组；  
+            </li>
+        </ol>
+    </p>
+    <h4>常见排序算法：</h4>
+    <hr>
+    <ul>
+        <li>
+           <b>冒泡排序：</b> 是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来;<br>
+           <p></p>1、冒泡排序流程：
+           <ol>
+               <li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+               <li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
+               <li>针对所有的元素重复以上的步骤，除了最后一个</li>
+               <li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较</li>
+           </ol>
+           <p>2、js程序实现：</p>
+           <p>
+                function bubbleSort(array) {                      <br>
+                    var length = array.length,                    <br>
+                        i,                                        <br>
+                        j,                                        <br>
+                        temp;                                     <br>
+                    for (i = length - 1; 0 < i; i--) {            <br>  
+                    for (j = 0; j < i; j++) {                     <br>
+                        if (array[j] > array[j + 1]) {            <br>
+                            temp = array[j];                      <br>
+                            array[j] = array[j + 1];              <br>
+                            array[j + 1] = temp;                  <br>
+                            }                                     <br>
+                        }                                         <br>
+                    }                                             <br>
+                    return array;                                 <br>
+                }
+           </p>
+        </li>
+<hr>
+        <li>
+            <b>插入排序：</b>设有一组关键字｛K1， K2，…， Kn｝；排序开始就认为 K1 是一个有序序列；让 K2 插入上述表长为 1 的有序序列，使之成为一个表长为 2 的有序序列；然后让 K3 插入上述表长为 2 的有序序列，使之成为一个表长为 3 的有序序列；依次类推，最后让 Kn 插入上述表长为 n-1 的有序序列，得一个表长为 n 的有序序列。  <br>
+            <b> 二分查找排序法（插入排序法的一种）：</b> 是一种在有序数组中查找某一特定元素的搜索算法。搜素过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜素过程结束；如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。如果在某一步骤数组为空，则代表找不到。这种搜索算法每一次比较都使搜索范围缩小一半。
+        </li>
+        <p></p>1、插入排序流程：
+           <ol>
+               <li>从第一个元素开始，该元素可以认为已经被排序</li>
+               <li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
+               <li>如果该元素（已排序）大于新元素，将该元素移到下一位置</li>
+               <li>重复步骤 3，直到找到已排序的元素小于或者等于新元素的位置</li>
+               <li>将新元素插入到该位置后</li>
+               <li>重复步骤 2~5</li>
+           </ol>
+           <p>2、js程序实现：</p>
+        <div style="border: 1px solid red;text-align: center;">
+                <div style="display: inline-block; border: 1px solid red;text-align: left">
+              <p><small >(1)、直接插入排序 JavaScript 实现代码：</small></p>
+          function insertionSort(array) {             <br>
+              function swap(array, i, j) {            <br>
+                var temp = array[i];                  <br>
+                array[i] = array[j];                  <br>
+                array[j] = temp;                      <br>
+              }                                       <br>
+              var length = array.length,              <br>
+                  i,                                  <br>
+                  j;                                  <br>
+              for (i = 1; i < length; i++) {          <br>
+                for (j = i; j > 0; j--) {             <br>
+                  if (array[j - 1] > array[j]) {      <br>
+                    swap(array, j - 1, j);            <br>
+                  } else {                            <br>
+                    break;                            <br>
+                  }                                   <br>
+                }                                     <br>
+              }                                       <br>
+              return array;                           <br>
+            }                         
+                </div>  
+                <div style="display: inline-block;border:1px solid red;text-align: left">
+              <p><small>(2)、减少交换次数插入排序法：</small></p>
+              function insertionSort(array) {         <br>
+                  var length = array.length,          <br>
+                    i,                                <br>
+                    j,                                <br>
+                    temp;                             <br>
+                  for (i = 1; i < length; i++) {      <br>
+                    temp = array[i];                  <br>
+                    for (j = i; j >= 0; j--) {        <br>
+                      if (array[j - 1] > temp) {      <br>
+                        array[j] = array[j - 1];      <br>
+                      } else {                        <br>
+                        array[j] = temp;              <br>
+                        break;                        <br>
+                      }                               <br>
+                    }                                 <br>
+                  }                                   <br>
+                  return array;                       <br>
+                }
+                </div> 
+                <div style="display: inline-block;border:1px solid red;text-align: left">
+                        <p><small>（3）、JS利用二分查找法</small></p>
+                        function insertionSort2(array) {                        <br>
+                            function binarySearch(array, start, end, temp) {    <br>
+                              var middle;                                       <br>
+                              while (start <= end) {                            <br>
+                                middle = Math.floor((start + end) / 2);         <br>
+                                if (array[middle] < temp) {                     <br>
+                                  if (temp <= array[middle + 1]) {              <br>
+                                    return middle + 1;                          <br>
+                                  } else {                                      <br>
+                                    start = middle + 1;                         <br>
+                                  }                                             <br>
+                                } else {                                        <br>
+                                  if (end === 0) {                              <br>
+                                    return 0;                                   <br>
+                                  } else {                                      <br>
+                                    end = middle;                               <br>
+                                  }                                             <br>
+                                }                                               <br>
+                              }                                                 <br>
+                            }                                                   <br>
+                            function binarySort(array) {                        <br>
+                              var length = array.length,                        <br>
+                                  i,                                            <br>
+                                  j,                                            <br>
+                                  k,                                            <br>
+                                  temp;                                         <br>
+                              for (i = 1; i < length; i++) {                    <br>
+                                temp = array[i];                                <br>
+                                if (array[i - 1] <= temp) {                     <br>
+                                  k = i;                                        <br>
+                                } else {                                        <br>
+                                  k = binarySearch(array, 0, i - 1, temp);      <br>
+                                  for (j = i; j > k; j--) {                     <br>
+                                    array[j] = array[j - 1];                    <br>
+                                  }                                             <br>
+                                }                                               <br>
+                                array[k] = temp;                                <br>
+                              }                                                 <br>
+                              return array;                                     <br>
+                            }                                                   <br>
+                            return binarySort(array);                           <br>
+                          }
+                </div>
+        </div style="display: inline-block;border:1px solid red;">
+<hr>
+        <li><b>计数排序：</b>将数组分到有限数量的桶子里，然后对每个桶子再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序），最后将各个桶中的数据有序的合并起来。</li>
+            <p></p>1、计数排序流程：
+            <ol>
+              <li>假设待排序的一组数统一的分布在一个范围中，并将这一范围划分成几个子范围，也就是桶</li>
+              <li>将待排序的一组数，分档规入这些子桶，并将桶中的数据进行排序</li>
+              <li>将各个桶中的数据有序的合并起来</li>
+            </ol>
+        <p>2、js程序实现：</p>
+        <div style="text-align: center;border: 1px solid red;">
+          <div style="display: inline-block;border: 1px solid red;">
+            <p>方法一、首先用最笨的方法，每一个桶只能放相同的数字，最大桶的数量为数组中的正数最大值加上负数最小值的绝对值。 </p>
+            function bucketSort(array) {                  <br>
+              var bucket = [], // 正数桶                  <br>
+                  negativeBucket = [], // 负数桶          <br>
+                  result = [],                           <br>
+                  l = array.length,                       <br>
+                  i,                                        <br>
+                  j,                                        <br>
+                  k,                                          <br>
+                  abs;                                        <br>
+              // 入桶                                         <br>
+              for (i = 0; i < l; i++) {                       <br>
+                  if (array[i] < 0) {                         <br>
+                      abs = Math.abs(array[i]);               <br>
+                      if (!negativeBucket[abs]) {             <br>
+                          negativeBucket[abs] = [];           <br>
+                      }                                       <br>
+                      negativeBucket[abs].push(array[i]);     <br>  
+                  } else {                                    <br>  
+                      if (!bucket[array[i]]) {                <br>
+                          bucket[array[i]] = [];              <br>
+                      }                                       <br>
+                      bucket[array[i]].push(array[i]);        <br>
+                  }                                           <br>
+              }                                               <br>
+              // 出桶                                           <br>
+              l = negativeBucket.length;                        <br>
+              for (i = l - 1; i >= 0; i--) {                    <br>
+                  if (negativeBucket[i]) {                      <br>
+                      k = negativeBucket[i].length;             <br>
+                      for (j = 0; j < k; j++) {                 <br>
+                          result.push(negativeBucket[i][j]);    <br>
+                      }                                         <br>
+                  }                                            <br>
+              }                                                 <br>
+              l = bucket.length;                               <br>
+              for (i = 0; i < l; i++) {                        <br>
+                  if (bucket[i]) {                             <br>
+                      k = bucket[i].length;                     <br>
+                      for (j = 0; j < k; j++) {                 <br>
+                          result.push(bucket[i][j]);           <br>
+                      }                                        <br>
+                  }                                             <br>
+              }                                                 <br>
+              return result;                                    <br>
+          }
+          </div>
+          <div style="display: inline-block;border: 1px solid red;">
+              <p>方法二：每个桶存放一定范围的数字，用 step 参数来设置该范围，取 step 为 1 就退化成前一种实现方式。</p>
+              /*
+* @array 将要排序的数组  <br>
+* <br>
+* @step 划分桶的步长，比如 step = 5，表示每个桶存放的数字的范围是 5，像 -4<sub>1、0</sub>5、6~11  <br>
+*/   <br>
+function bucketSort(array, step) {   <br>
+    var result = [], <br>
+        bucket = [],      <br>
+        bucketCount,      <br>
+        l = array.length,     <br>
+        i,                    <br>
+        j,                    <br>
+        k,                    <br>
+        s,                        <br>
+        max = array[0],             <br>
+        min = array[0],                     <br>
+        temp;                     <br>
+    for (i = 1; i < l; i++) {         <br>
+        if (array[i] > max) {         <br>
+            max = array[i]            <br>
+        }                             <br>
+        if (array[i] < min) {             <br>
+            min = array[i];                 <br>
+        }                                 <br>
+    }                                     <br>
+    min = min - 1;                        <br>
+    bucketCount = Math.ceil((max - min) / step); // 需要桶的数量    <br>
+    for (i = 0; i < l; i++) {                                       <br>
+        temp = array[i];                                              <br>
+        for (j = 0; j < bucketCount; j++) {                             <br>
+            if (temp > (min + step * j) && temp <= (min + step * (j + 1))) { // 判断放入哪个桶    <br>
+                if (!bucket[j]) {                                                             <br>
+                    bucket[j] = [];                                                           <br>
+                }                                                                             <br>
+                // 通过插入排序将数字插入到桶中的合适位置                                         <br>
+                s = bucket[j].length;                                                           <br>
+                if (s > 0) {                                                                    <br>
+                    for (k = s - 1; k >= 0; k--) {                                              <br>
+                        if (bucket[j][k] > temp) {                                              <br>
+                            bucket[j][k + 1] = bucket[j][k];                                    <br>
+                        } else {                                                                <br>
+                            break;                                                              <br>
+                        }                                                                       <br>
+                    }                                                                           <br>
+                    bucket[j][k + 1] = temp;                                                    <br>
+                } else {                                                                        <br>
+                    bucket[j].push(temp);                                                       <br>
+                }                                                                              <br>
+            }                                                                                   <br>
+        }                                                                                       <br>
+    }                                                                                           <br>
+    for (i = 0; i < bucketCount; i++) { // 循环取出桶中数据                                      <br>
+        if (bucket[i]) {                                                                        <br>
+            k = bucket[i].length;                                                               <br>
+            for (j = 0; j < k; j++) {                                                           <br>
+                result.push(bucket[i][j]);                                                     <br>
+            }                                                                                   <br>
+        }                                                                                       <br>
+    }                                                                                           <br>  
+    return result;                                                                              <br>
+}
+          </div>
+        </div>
+<hr>
+        <li>
+            <a href="http://bubkoo.com/tags/algorithm/" target="_blanket"><b style="color:black;">想看其它排序请点击me</b></a>
+        </li>
+    </ul>
+    <hr>
+    <h4>结构化编程：</h4>
+    <p>满足以下条件：</p>
+    <ul>
+      <li>一行一行执行</li>
+      <li>有条件控制语句：if …… else</li>
+      <li>有循环控制语句：while …… do……</li>
+    </ul>
+    <hr style="border:2px solid red;border-bottom: double;">
+    <h1>重点内容之一：</h1>
+    <h2>伪代码：</h2>
+    <h4>方方的伪代码：</h4>
+    <ul>
+      <li>a <- 1    //把1 拷贝给a</li>
+      <li>
+        条件控制语句：   <br>
+        if  xxx <br>
+        1 <br>
+        elseif yyyy   <br>
+        2
+        else   <br>
+        3    <br>
+        end 
+      </li>
+      <li>
+        循环语句：   <br>
+        n <- 0;    <br>
+        while n < 10   <br>
+        print n    <br>
+        n <- n+1   <br>
+        end
+      </li>
+      <li>
+        length  //表示容器        
+      </li>
+      <li>
+          'length'    //表示字符串
+      </li>
+      <li>
+        'length' <- length   //将字符串放入容器
+      </li>
+    </ul>
+    <h5>举例：在正整数组中用伪代码找出最小数字：</h5>
+    <p>
+      a <- {                   <br>
+        '0' : 23               <br>
+        '1' : 34               <br>
+        '2' : 239               <br>
+        '3' : 1321              <br>
+        '4' : 90                <br>
+        'length' : 5            <br>
+      }                         <br>
+      min <- a['0']             <br>
+      index <- 1                <break>
+      while index < a['length'] <br>
+        if a[index] < min       <br>
+            min <- a[index]     <break>
+            end     
+          index <- index+1       <br>
+      end                       <br>
+      print min                 
+    </p>        
+    <h2>流程图：</h2>
+    <ul>
+      <li>流程图的好处就是理清思维逻辑；</li>
+      <li>特征：</li>
+      <li style="list-style: none;">
+        <ol>
+          <li>必须有start 和 end</li>
+          <li>分支语句全部用菱形，普通语句全部用长方形；</li>
+          <li>菱形分支语句只有两个出口：YES / NO</li>
+        </ol>
+      </li>
+    </ul>  
+      <hr style="border: double;">
+    <h1>重点内容之二：</h1>
+    <h2>五种排序：</h2>
+    <h4>算法：</h4>表示为一个有限长列表的有效方法
+    <ul>
+      <li>特征：</li>
+      <li>输入：一个算法必须有零个或以上输入量</li>
+      <li>输出：一个算法应有一个或以上输出量，输出量是算法计算的结果</li>
+      <li>明确性：算法的描述必须无歧义，以保证算法的实际执行结果是精确地匹配要求或期望，通常要求实际运行结果是确定的</li>
+      <li>有限性：依据图灵的定义，一个算法是能够被任何图灵完备系统模拟的一串运算，而图灵机只有有限个状态、有限个输入符号和有限个转移函数（指令）。而一些定义更规定算法必须在有限个步骤内（有限个时间内）完成任务</li>
+      <li>有效性：又称可行性。能够实现，算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现</li>
+    </ul>
+    <hr>
+    <h4>数据结构：</h4><p>数据的结构；一般来说数据结构是，我们要解决一个跟数据相关的问题，分析这个问题，想出对应的数据结构，分析数据结构，想出算法；</p>
+    <h4>数据结构大分类：</h4>
+    <ul>
+      <li>分治法：把一个问题分区成互相独立的多个部分分别求解的思路。这种求解思路带来的好处之一是便于进行并行计算</li>
+      <li>动态规划法：当问题的整体最优解就是由局部最优解组成的时候，经常采用的一种方法。</li>
+      <li>贪婪算法：常见的近似求解思路。当问题的整体最优解不是（或无法证明是）由局部最优解组成，且对解的最优性没有要求的时候，可以采用的一种方法。</li>
+      <li>线性规划法：见词条</li>
+      <li>简并法：把一个问题通过逻辑或数学推理，简化成与之等价或者近似的、相对简单的模型，进而求解的方法。</li>
+    </ul>
+    <p>
+      一般前端用到的数据结构有数组和对象；
+    </p>
+    <div>先分析数据结构、再用算法；</div>
+    <hr>
+    <div style="border: 2px solid blue;">
+      <div><big><center>五种排序算法：</center></big></div>
+        <div style="border: 1px solid red;">
+            <p>（体育委员两手比较法）冒泡排序法：</p>
+            <p>伪代码实现：</p>
+
+          <img src="./冒泡（体育委员两手比较）排序法.png" alt="">
+        </div>
+        <div style="border: 1px solid red;">
+            <p>（体育老师一指禅法）选择排序法：</p>
+          <img src="./（体育老师一指禅）选择排序.png" alt="">
+        </div>
+        <div style="border: 1px solid red;">
+            <p>起扑克牌算法：</p>
+          <img src="./扑克牌算法.png" alt="">
+        </div>
+        <div style="border: 1px solid red;">
+            <p>奇数排序（强迫症收扑克牌）算法：</p>
+          <img src="./强迫症收扑克牌法.png" alt="">
+        </div>
+        <div style="border: 1px solid red;">
+            <p>快排：</p>
+          <img src="./快排.png" alt="">
+        </div>
+    </div> 
+    以上排序的统一特征就是比较，比较排序的最快排序、，就是最快时间复杂度就是N * Log N;其中最快的就是随机快排；
+  </body>
+</html>
