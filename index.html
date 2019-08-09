@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>牛客网js练习题</title>
+</head>
+<body>
+    
+    <h4>第一题：逻辑操作符-且运算</h4>
+    <p>返回参数 a 和 b 的逻辑且运算结果</p>
+    <script>
+        function and(a, b) {
+            return !!(a && b);
+        }
+    </script>
+
+
+    <h4>第二题：逻辑操作符-或运算</h4>
+    <p>返回参数 a 和 b 的逻辑或运算结果</p>
+    <script>
+        function and(a, b) {
+            return !!(a || b);
+        }
+    </script>
+
+
+    <h4>第三题：编码规范-避免全局变量</h4>
+    <script>
+        function globals() {
+            var myObject = {     //声明对象则可以避免全局变量
+                name : 'Jory'
+            };
+
+            return myObject;
+        }
+    </script>
+
+
+    <h4>第四题：对象-改变上下文</h4>
+    <p>将函数 fn 的执行上下文改为 obj，返回 fn 执行后的值</p>
+    <script>
+        function alterContext(fn, obj) {
+            return fn.apply(obj);
+        }   
+    </script>
+
+    
+    <h4>第五题：Number-乘法</h4>
+    <p>求 a 和 b 相乘的值，a 和 b 可能是小数，需要注意结果的精度问题</p>
+    <script>
+        function multiply(a, b) {
+            return b * a
+        } 
+    </script>
+
+    
+    <h4>第六题：编码规范-完全等同</h4>
+    <p>判断 val1 和 val2 是否完全等同</p>
+    <script>
+        function identity(val1, val2) {
+            return !!(val1 === val2);
+        }
+    </script>
+
+
+    <h4>第七题：</h4>
+</body>
+</html>
