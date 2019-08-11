@@ -65,6 +65,22 @@
     </script>
 
 
-    <h4>第七题：</h4>
+    <h4>第七题：批量改变对象属性-原型链</h4>
+    <p>给定一个构造函数 constructor，请完成 alterObjects 方法，将 constructor 的所有实例的 greeting 属性指向给定的 greeting 变量。</p>
+    <script>
+        function alterObjects(constructor, greeting) {
+            constructor.prototype.greeting = greeting;                      
+        }
+    </script>
+
+    <h4>第八题：数组-API</h4>
+    <p>删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组</p>
+    <script>
+        function curtail(arr) {
+            var array = arr.slice(0)    //删除第一个元素
+            array.shift()               //保留原数组
+            return array
+        }
+    </script>
 </body>
 </html>
