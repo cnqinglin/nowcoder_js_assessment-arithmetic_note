@@ -82,5 +82,22 @@
             return array
         }
     </script>
+
+    <h4>第九题：函数-API</h4>
+    <p>将函数 fn 的执行上下文改为 obj 对象</p>
+    <script>
+        function speak(fn,obj){
+            return fn.apply(obj)  //函数的apply方法能改变上下文
+        }
+    </script>
+
+
+    <h4>第十题：数组-API</h4>
+    <p>合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组</p>
+    <script>
+        function concat(arr1,arr2) {
+            return arr1.concat(arr2)
+        }
+    </script>
 </body>
 </html>
